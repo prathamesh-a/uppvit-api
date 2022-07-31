@@ -65,6 +65,14 @@ public class AuthService {
         return token;
     }
 
+    @Transactional(readOnly = true)
+    User getCurrentUser() {
+        org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.
+                getContext().getAuthentication().getPrincipal();
+        return userRepository.findByUsername(principal.getUsername())
+                .orElseThrow(() -> new UppvitException("User name not found - " + principal.getUsername()));
+    }
+
     private String encodePassword(String password) {
         return passwordEncoder.encode(password);
     }
