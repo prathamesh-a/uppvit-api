@@ -40,7 +40,7 @@ public class GuildService {
     @Transactional(readOnly = true)
     public GuildDto getGuild(Long id) {
         Guild guild = guildRepo.findById(id)
-                .orElseThrow(() -> new UppvitException("Guild not found with id -" + id));
+                .orElseThrow(() -> new Guild("Guild not found with id " + id));
         return guildMapper.mapGuildToDto(guild);
     }
 }

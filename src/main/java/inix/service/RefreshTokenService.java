@@ -1,6 +1,7 @@
 package inix.service;
 
 import inix.Repo.RefreshTokenRepo;
+import inix.exception.InvalidTokenException;
 import inix.exception.UppvitException;
 import inix.model.RefreshToken;
 import lombok.AllArgsConstructor;
@@ -27,7 +28,7 @@ public class RefreshTokenService {
 
     void validateRefreshToken(String token) {
         refreshTokenRepository.findByToken(token)
-                .orElseThrow(() -> new UppvitException("Invalid refresh Token"));
+                .orElseThrow(() -> new InvalidTokenException("Invalid refresh Token"));
     }
 
     public void deleteRefreshToken(String token) {

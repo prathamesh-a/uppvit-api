@@ -4,6 +4,7 @@ import inix.Repo.PostRepo;
 import inix.Repo.VoteRepo;
 import inix.dto.VoteDto;
 import inix.exception.UppvitException;
+import inix.exception.UppvitPostNotFoundException;
 import inix.model.Post;
 import inix.model.Vote;
 import lombok.AllArgsConstructor;
@@ -25,7 +26,7 @@ public class VoteService {
     @Transactional
     public void vote(VoteDto voteDto) {
         Post post = postRepository.findById(voteDto.getPostId())
-                .orElseThrow(() -> new UppvitException("Post Not Found with ID - " + voteDto.getPostId()));
+                .orElseThrow(() -> new UppvitPostNotFoundException(String.valueOf(voteDto.getPostId())));
         Optional<Vote> voteByPostAndUser = voteRepository.findTopByPostAndUserOrderByVoteIdDesc(post, authService.getCurrentUser());
         if (voteByPostAndUser.isPresent() &&
                 voteByPostAndUser.get().getVoteType()

@@ -6,7 +6,9 @@ import inix.dto.AuthenticationResponse;
 import inix.dto.LoginRequest;
 import inix.dto.RefreshTokenRequest;
 import inix.dto.RegisterRequest;
+import inix.exception.InvalidTokenException;
 import inix.exception.UppvitException;
+import inix.exception.UppvitUserNotFoundException;
 import inix.model.NotificationEmail;
 import inix.model.User;
 import inix.model.VerificationToken;
@@ -73,7 +75,7 @@ public class AuthService {
         org.springframework.security.core.userdetails.User principal = (org.springframework.security.core.userdetails.User) SecurityContextHolder.
                 getContext().getAuthentication().getPrincipal();
         return userRepository.findByUsername(principal.getUsername())
-                .orElseThrow(() -> new UppvitException("User name not found - " + principal.getUsername()));
+                .orElseThrow(() -> new UppvitUserNotFoundException(principal.getUsername()));
     }
 
     private String encodePassword(String password) {
@@ -95,14 +97,14 @@ public class AuthService {
 
     public void verifyAccount(String token) {
         Optional<VerificationToken> verificationTokenOptional = verificationTokenRepository.findByToken(token);
-        verificationTokenOptional.orElseThrow(() -> new UppvitException("Invalid Token"));
+        verificationTokenOptional.orElseThrow(() -> new InvalidTokenException("Invalid Token"));
         fetchUserAndEnable(verificationTokenOptional.get());
     }
 
     @Transactional
     private void fetchUserAndEnable(VerificationToken verificationToken) {
         String username = verificationToken.getUser().getUsername();
-        User user = userRepository.findByUsername(username).orElseThrow(() -> new UppvitException("User Not Found with id - " + username));
+        User user = userRepository.findByUsername(username).orElseThrow(() -> new UppvitUserNotFoundException(username));
         user.setEnabled(true);
         userRepository.save(user);
     }

@@ -1,6 +1,6 @@
 package inix.model;
 
-import inix.exception.UppvitException;
+import inix.exception.VoteNotFoundException;
 
 import java.util.Arrays;
 
@@ -15,7 +15,7 @@ public enum VoteType {
         return Arrays.stream(VoteType.values())
                 .filter(value -> value.getDirection().equals(direction))
                 .findAny()
-                .orElseThrow(() -> new UppvitException("Vote Not Found"));
+                .orElseThrow(() -> new VoteNotFoundException(String.valueOf(direction)));
     }
 
     private Object getDirection() {

@@ -5,7 +5,10 @@ import inix.Repo.PostRepo;
 import inix.Repo.UserRepo;
 import inix.dto.PostRequest;
 import inix.dto.PostResponse;
+import inix.exception.GuildNotFoundException;
 import inix.exception.UppvitException;
+import inix.exception.UppvitPostNotFoundException;
+import inix.exception.UppvitUserNotFoundException;
 import inix.mapper.PostMapper;
 import inix.model.Guild;
 import inix.model.Post;
@@ -34,7 +37,7 @@ public class PostService {
     @Transactional(readOnly = true)
     public PostResponse getPost(Long id) {
         Post post = postRepository.findById(id)
-                .orElseThrow(() -> new UppvitException(id.toString()));
+                .orElseThrow(() -> new UppvitPostNotFoundException(id.toString()));
         return postMapper.mapToDto(post);
     }
 
@@ -48,14 +51,14 @@ public class PostService {
 
     public void save(PostRequest postRequest) {
         Guild guild = guildRepo.findByName(postRequest.getGuildName())
-                .orElseThrow(() -> new UppvitException(postRequest.getGuildName()));
+                .orElseThrow(() -> new GuildNotFoundException(postRequest.getGuildName()));
         postRepository.save(postMapper.map(postRequest, guild, authService.getCurrentUser()));
     }
 
     @Transactional(readOnly = true)
     public List<PostResponse> getPostsByGuild(Long guildId) {
         Guild guild = guildRepo.findById(guildId)
-                .orElseThrow(() -> new UppvitException(guildId.toString()));
+                .orElseThrow(() -> new GuildNotFoundException(guildId.toString()));
         List<Post> posts = postRepository.findAllByGuild(guild);
         return posts.stream().map(postMapper::mapToDto).collect(toList());
     }
@@ -63,7 +66,7 @@ public class PostService {
     @Transactional(readOnly = true)
     public List<PostResponse> getPostsByUsername(String username) {
         User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new UppvitException(username));
+                .orElseThrow(() -> new UppvitUserNotFoundException(username));
         return postRepository.findByUser(user)
                 .stream()
                 .map(postMapper::mapToDto)

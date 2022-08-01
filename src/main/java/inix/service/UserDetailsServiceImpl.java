@@ -1,6 +1,7 @@
 package inix.service;
 
 import inix.Repo.UserRepo;
+import inix.exception.UppvitUserNotFoundException;
 import inix.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -27,8 +28,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) {
         Optional<User> userOptional = userRepository.findByUsername(username);
         User user = userOptional
-                .orElseThrow(() -> new UsernameNotFoundException("No user " +
-                        "Found with username : " + username));
+                .orElseThrow(() -> new UppvitUserNotFoundException(username));
 
         return new org.springframework.security
                 .core.userdetails.User(user.getUsername(), user.getPassword(),

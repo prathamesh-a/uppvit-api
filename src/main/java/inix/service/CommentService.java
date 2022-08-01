@@ -5,6 +5,7 @@ import inix.Repo.PostRepo;
 import inix.Repo.UserRepo;
 import inix.dto.CommentsDto;
 import inix.exception.UppvitException;
+import inix.exception.UppvitPostNotFoundException;
 import inix.mapper.CommentMapper;
 import inix.model.Comment;
 import inix.model.NotificationEmail;
@@ -39,7 +40,7 @@ public class CommentService {
 
     public void createComment(CommentsDto commentsDto) {
         Post post = postRepository.findById(commentsDto.getPostId())
-                .orElseThrow(() -> new UppvitException("Post not found: "+commentsDto.getPostId().toString()));
+                .orElseThrow(() -> new UppvitPostNotFoundException(commentsDto.getPostId().toString()));
         Comment comment = commentMapper.map(commentsDto, post, authService.getCurrentUser());
         commentRepository.save(comment);
 
@@ -49,7 +50,7 @@ public class CommentService {
 
     public List<CommentsDto> getCommentByPost(Long postId) {
         Post post = postRepository.findById(postId)
-                .orElseThrow(() -> new UppvitException("Post not found: "+postId.toString()));
+                .orElseThrow(() -> new UppvitPostNotFoundException(postId.toString()));
         return commentRepository.findByPost(post)
                 .stream()
                 .map(commentMapper::mapToDto)
