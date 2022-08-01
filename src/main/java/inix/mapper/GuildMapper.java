@@ -15,12 +15,12 @@ public interface GuildMapper {
     @Mapping(target = "postCount", expression = "java(mapPosts(guild.getPosts()))")
     GuildDto mapGuildToDto(Guild guild);
 
-    default Integer mapPosts(List<Post> postCount) {
-        return postCount.size();
-    }
-
     @InheritInverseConfiguration
     @Mapping(target = "posts", ignore = true)
     Guild mapDtoToGuild(GuildDto guildDto);
+
+    default Integer mapPosts(List<Post> postCount) {
+        return postCount.size();
+    }
 
 }

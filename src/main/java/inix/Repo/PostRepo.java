@@ -9,6 +9,5 @@ import java.util.List;
 
 public interface PostRepo extends JpaRepository<Post, Long> {
     List<Post> findAllByGuild(Guild guild);
-
     List<Post> findByUser(User user);
 }

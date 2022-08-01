@@ -55,10 +55,12 @@ public class AuthService {
         userRepository.save(user);
 
         String token = generateVerificationToken(user);
-        String message = mailContentBuilder.build("Thank you for signing up to Uppvit, please click on the below url to activate your account : "
-                + "http://localhost:8080/api/auth/accountVerification/" + token);
-
-        mailService.sendMail(new NotificationEmail("Uppvit | Verify", user.getEmail(), message));
+        String message = mailContentBuilder.build("" +
+                "Hi " + user.getUsername() + ",\n" +
+                "Thanks again for creating account on Uppvit. To start using app, please confirm your email address.\n" +
+                "Click on the below link to activate your account: \n" +
+                "http://localhost:8080/api/auth/accountVerification/" + token);
+        mailService.sendMail(new NotificationEmail("Uppvit | Verify Email", user.getEmail(), message));
     }
 
     private String generateVerificationToken(User user) {

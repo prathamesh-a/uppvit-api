@@ -18,12 +18,14 @@ import static org.springframework.http.ResponseEntity.status;
 public class PostController {
     private final PostService postService;
 
+    // Post Mappings
     @PostMapping
     public ResponseEntity<Void> createPost(@RequestBody PostRequest postRequest) {
         postService.save(postRequest);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
+    // Get Mappings
     @GetMapping
     public ResponseEntity<List<PostResponse>> getAllPosts() {
         return status(HttpStatus.OK).body(postService.getAllPosts());

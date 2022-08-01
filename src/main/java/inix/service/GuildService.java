@@ -2,6 +2,7 @@ package inix.service;
 
 import inix.Repo.GuildRepo;
 import inix.dto.GuildDto;
+import inix.exception.GuildNotFoundException;
 import inix.exception.UppvitException;
 import inix.mapper.GuildMapper;
 import inix.model.Guild;
@@ -39,8 +40,7 @@ public class GuildService {
 
     @Transactional(readOnly = true)
     public GuildDto getGuild(Long id) {
-        Guild guild = guildRepo.findById(id)
-                .orElseThrow(() -> new Guild("Guild not found with id " + id));
+        Guild guild = guildRepo.findById(id).orElseThrow(() -> new GuildNotFoundException(String.valueOf(id)));
         return guildMapper.mapGuildToDto(guild);
     }
 }

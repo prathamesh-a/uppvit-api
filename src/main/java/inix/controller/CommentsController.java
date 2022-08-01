@@ -19,12 +19,14 @@ public class CommentsController {
 
     private final CommentService commentService;
 
+    // Post Mappings
     @PostMapping
     public ResponseEntity<Void> createComment(@RequestBody CommentsDto commentsDto) {
         commentService.createComment(commentsDto);
         return new ResponseEntity<>(CREATED);
     }
 
+    // Get Mappings
     @GetMapping("by-post/{postId}")
     public ResponseEntity<List<CommentsDto>> getAllCommentsForPost(@PathVariable Long postId) {
         return status(OK)

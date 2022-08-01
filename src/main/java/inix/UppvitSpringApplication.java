@@ -10,9 +10,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableAsync
 @Import(SwaggerConfig.class)
 public class UppvitSpringApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(UppvitSpringApplication.class, args);
 	}
-
 }

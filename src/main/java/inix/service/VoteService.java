@@ -28,17 +28,12 @@ public class VoteService {
         Post post = postRepository.findById(voteDto.getPostId())
                 .orElseThrow(() -> new UppvitPostNotFoundException(String.valueOf(voteDto.getPostId())));
         Optional<Vote> voteByPostAndUser = voteRepository.findTopByPostAndUserOrderByVoteIdDesc(post, authService.getCurrentUser());
-        if (voteByPostAndUser.isPresent() &&
-                voteByPostAndUser.get().getVoteType()
-                        .equals(voteDto.getVoteType())) {
-            throw new UppvitException("You have already "
-                    + voteDto.getVoteType() + "'d for this post");
+        if (voteByPostAndUser.isPresent() && voteByPostAndUser.get().getVoteType().equals(voteDto.getVoteType())) {
+            throw new UppvitException("You have already " + voteDto.getVoteType() + "'d for this post");
         }
-        if (UPVOTE.equals(voteDto.getVoteType())) {
-            post.setVoteCount(post.getVoteCount() + 1);
-        } else {
-            post.setVoteCount(post.getVoteCount() - 1);
-        }
+        if (UPVOTE.equals(voteDto.getVoteType())) post.setVoteCount(post.getVoteCount() + 1);
+        else post.setVoteCount(post.getVoteCount() - 1);
+
         voteRepository.save(mapToVote(voteDto, post));
         postRepository.save(post);
     }

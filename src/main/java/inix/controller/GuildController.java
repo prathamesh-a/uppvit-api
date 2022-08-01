@@ -17,6 +17,7 @@ public class GuildController {
 
     private final GuildService guildService;
 
+    // Get Mappings
     @GetMapping
     public List<GuildDto> getAllGuilds() {
         return guildService.getAll();
@@ -27,6 +28,7 @@ public class GuildController {
         return guildService.getGuild(id);
     }
 
+    // Post Mappings
     @PostMapping
     public GuildDto create(@RequestBody @Valid GuildDto guildDto) {
         return guildService.save(guildDto);

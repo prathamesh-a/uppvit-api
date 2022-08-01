@@ -14,8 +14,9 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @Configuration
 @EnableSwagger2
 public class SwaggerConfig {
+
     @Bean
-    public Docket redditCloneApi() {
+    public Docket uppvitApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(RequestHandlerSelectors.any())
@@ -23,6 +24,7 @@ public class SwaggerConfig {
                 .build()
                 .apiInfo(getApiInfo());
     }
+
     private ApiInfo getApiInfo() {
         return new ApiInfoBuilder()
                 .title("Uppvit API")
