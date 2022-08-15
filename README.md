@@ -44,3 +44,6 @@ This repository represents the RESTful API for the Uppvit client developed in Sp
 [ Map Struct, Spring Boot Jpa, Java Mail Sender, Spring Security, Lombok, MySQL Connector, JSON Web Tokens, Time Ago, Kotlin STDLIB, Thymeleaf ]
 
 <hr>
+
+## Uppvit Client
+The client for this API is still under development. It will be released once it is done.
