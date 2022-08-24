@@ -4,7 +4,7 @@
 ![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/prathamesh-a/uppvit-api?include_prereleases)
 ![GitHub last commit](https://img.shields.io/github/last-commit/prathamesh-a/uppvit-api)
 
-<hr>
+
 
 ## Overview
 Uppvit is a social media network that allows users to create guilds (communities) 
@@ -13,7 +13,6 @@ Users can create guilds for their topics of interest and have endless discussion
 Users can share text posts and links to content in the post. Posts can be upvoted or downvoted by other users.
 This repository represents the RESTful API for the Uppvit client developed in Spring Boot.
 
-<hr>
 
 ## Developer Setup
 ### System Requirements
@@ -29,7 +28,6 @@ This repository represents the RESTful API for the Uppvit client developed in Sp
 5. Run the server on your local machine.
 6. You may now make API calls to the server locally via `localhost:8080`, the API documentation can also be accessed at http://localhost:8080/swagger-ui.html#/.
 
-<hr>
 
 ## Features
 - ### User Authentication
@@ -42,12 +40,11 @@ This repository represents the RESTful API for the Uppvit client developed in Sp
   Other users can give a vote on your post by giving you an upvote or downvote. One user is allowed to vote once per post.
 - ### Comments
   You can comment on your own as well as others' posts. Anyone who can see the post is allowed to write comments on the post.
-<hr>
 
 ### Dependencies Used
 [ Map Struct, Spring Boot Jpa, Java Mail Sender, Spring Security, Lombok, MySQL Connector, JSON Web Tokens, Time Ago, Kotlin STDLIB, Thymeleaf ]
 
-<hr>
+
 
 ## Uppvit Client
 The client for this API is still under development. It will be released once it is done.
