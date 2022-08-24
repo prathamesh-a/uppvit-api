@@ -1,4 +1,8 @@
 # Uppvit API
+![GitHub top language](https://img.shields.io/github/languages/top/prathamesh-a/uppvit-api)
+![GitHub issues](https://img.shields.io/github/issues/prathamesh-a/uppvit-api)
+![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/prathamesh-a/uppvit-api?include_prereleases)
+![GitHub last commit](https://img.shields.io/github/last-commit/prathamesh-a/uppvit-api)
 
 <hr>
 
