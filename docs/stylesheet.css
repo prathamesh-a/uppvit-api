@@ -6,26 +6,26 @@ Overall document style
 @import url('resources/fonts/dejavu.css');
 
 body {
-    background-color:#ffffff;
-    color:#353833;
+    background-color: #272b31;
+    color: #ecfbff;
     font-family:'DejaVu Sans', Arial, Helvetica, sans-serif;
     font-size:14px;
     margin:0;
 }
 a:link, a:visited {
     text-decoration:none;
-    color:#4A6782;
+    color: #c5dffd;
 }
 a:hover, a:focus {
     text-decoration:none;
-    color:#bb7a2a;
+    color: #6dffdd;
 }
 a:active {
     text-decoration:none;
-    color:#4A6782;
+    color: #acd5fc;
 }
 a[name] {
-    color:#353833;
+    color: #ddffc5;
 }
 a[name]:hover {
     text-decoration:none;
@@ -114,7 +114,7 @@ Document title and Copyright styles
 Navigation bar styles
 */
 .bar {
-    background-color:#4D7A97;
+    background-color: #1e2125;
     color:#FFFFFF;
     padding:.8em .5em .4em .8em;
     height:auto;/*height:1.8em;*/
@@ -122,7 +122,7 @@ Navigation bar styles
     margin:0;
 }
 .topNav {
-    background-color:#4D7A97;
+    background-color: #1e2125;
     color:#FFFFFF;
     float:left;
     padding:0;
@@ -135,7 +135,7 @@ Navigation bar styles
 }
 .bottomNav {
     margin-top:10px;
-    background-color:#4D7A97;
+    background-color:#1e2125;
     color:#FFFFFF;
     float:left;
     padding:0;
@@ -147,7 +147,7 @@ Navigation bar styles
     font-size:12px;
 }
 .subNav {
-    background-color:#dee3e9;
+    background-color: #2e3d3f;
     float:left;
     width:100%;
     overflow:hidden;
@@ -181,11 +181,11 @@ ul.subNavList li{
 }
 .topNav a:hover, .bottomNav a:hover {
     text-decoration:none;
-    color:#bb7a2a;
+    color: #6dffdd;
     text-transform:uppercase;
 }
 .navBarCell1Rev {
-    background-color:#F8981D;
+    background-color: #80fab5;
     color:#253441;
     margin: auto 5px;
 }
@@ -214,7 +214,7 @@ Page header and footer styles
     font-size:13px;
 }
 .title {
-    color:#2c4557;
+    color: #8ffac5;
     margin:10px 0;
 }
 .subTitle {
@@ -235,14 +235,14 @@ Page header and footer styles
 Heading styles
 */
 div.details ul.blockList ul.blockList ul.blockList li.blockList h4, div.details ul.blockList ul.blockList ul.blockListLast li.blockList h4 {
-    background-color:#dee3e9;
-    border:1px solid #d0d9e0;
+    background-color: #2f3741;
+    /*border:1px solid #d0d9e0;*/
     margin:0 0 6px -8px;
     padding:7px 5px;
 }
 ul.blockList ul.blockList ul.blockList li.blockList h3 {
-    background-color:#dee3e9;
-    border:1px solid #d0d9e0;
+    background-color: #202c3b;
+    /*border:1px solid #d0d9e0;*/
     margin:0 0 6px -8px;
     padding:7px 5px;
 }
@@ -331,12 +331,12 @@ ul.blockList li.blockList, ul.blockListLast li.blockList {
 }
 ul.blockList ul.blockList li.blockList, ul.blockList ul.blockListLast li.blockList {
     padding:0px 20px 5px 10px;
-    border:1px solid #ededed; 
-    background-color:#f8f8f8;
+    /*border:1px solid #ededed; */
+    background-color: #1d2626;
 }
 ul.blockList ul.blockList ul.blockList li.blockList, ul.blockList ul.blockList ul.blockListLast li.blockList {
     padding:0 0 5px 8px;
-    background-color:#ffffff;
+    background-color: #181826;
     border:none;
 }
 ul.blockList ul.blockList ul.blockList ul.blockList li.blockList {
@@ -359,9 +359,9 @@ Table styles
 */
 .overviewSummary, .memberSummary, .typeSummary, .useSummary, .constantsSummary, .deprecatedSummary {
     width:100%;
-    border-left:1px solid #EEE; 
-    border-right:1px solid #EEE; 
-    border-bottom:1px solid #EEE; 
+    /*border-left:1px solid #EEE; */
+    /*border-right:1px solid #EEE; */
+    /*border-bottom:1px solid #EEE; */
 }
 .overviewSummary, .memberSummary  {
     padding:0px;
@@ -400,7 +400,7 @@ Table styles
     padding-bottom:7px;
     display:inline-block;
     float:left;
-    background-color:#F8981D;
+    background-color: #ceff89;
     border: none;
     height:16px;
 }
@@ -412,7 +412,7 @@ Table styles
     margin-right:3px;
     display:inline-block;
     float:left;
-    background-color:#F8981D;
+    background-color: #c8ff4c;
     height:16px;
 }
 .memberSummary caption span.tableTab span {
@@ -472,7 +472,7 @@ td.colOne, td.colFirst, td.colLast, .useSummary td, .constantsSummary td{
     padding-bottom:3px;
 }
 th.colFirst, th.colLast, th.colOne, .constantsSummary th {
-    background:#dee3e9;
+    background: #241e26;
     text-align:left;
     padding:8px 3px 3px 7px;
 }
@@ -499,13 +499,13 @@ td.colOne a:link, td.colOne a:active, td.colOne a:visited, td.colOne a:hover, td
     font-weight:bold;
 }
 .tableSubHeadingColor {
-    background-color:#EEEEFF;
+    background-color: #27273d;
 }
 .altColor {
-    background-color:#FFFFFF;
+    background-color: #272b2f;
 }
 .rowColor {
-    background-color:#EEEEEF;
+    background-color: #141514;
 }
 /*
 Content styles
