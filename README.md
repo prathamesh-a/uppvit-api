@@ -5,7 +5,6 @@
 ![GitHub last commit](https://img.shields.io/github/last-commit/prathamesh-a/uppvit-api)
 
 
-
 ## Overview
 Uppvit is a social media network that allows users to create guilds (communities) 
 and write posts in guilds.
@@ -13,6 +12,7 @@ Users can create guilds for their topics of interest and have endless discussion
 Users can share text posts and links to content in the post. Posts can be upvoted or downvoted by other users.
 This repository represents the RESTful API for the Uppvit client developed in Spring Boot.
 
+#### Documentation: https://prathamesh-a.github.io/uppvit-api/
 
 ## Developer Setup
 ### System Requirements
