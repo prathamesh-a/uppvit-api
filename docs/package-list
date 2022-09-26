@@ -1,0 +1,10 @@
+inix
+inix.Repo
+inix.config
+inix.controller
+inix.dto
+inix.exception
+inix.mapper
+inix.model
+inix.security
+inix.service

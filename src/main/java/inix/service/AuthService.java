@@ -60,6 +60,7 @@ public class AuthService {
                 "Thanks again for creating account on Uppvit. To start using app, please confirm your email address.\n" +
                 "Click on the below link to activate your account: \n" +
                 "http://localhost:8080/api/auth/accountVerification/" + token);
+        System.out.println("NEW TOKEN -> " + token);
         mailService.sendMail(new NotificationEmail("Uppvit | Verify Email", user.getEmail(), message));
     }
 
