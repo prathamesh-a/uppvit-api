@@ -28,9 +28,12 @@ This repository represents the RESTful API for the Uppvit client developed in Sp
 5. Run the server on your local machine.
 6. You may now make API calls to the server locally via `localhost:8080`, the API documentation can also be accessed at http://localhost:8080/swagger-ui.html#/.
 
-## Database Schema
-
+## Diagrams
+### Database Schema
 ![image](https://user-images.githubusercontent.com/89336149/192137125-1b789430-f6a0-481d-8689-10bf6b4da320.png)
+### Class Diagram
+![inix](https://user-images.githubusercontent.com/89336149/192227158-9ece3acd-d467-4acc-916f-8be3630faef7.png)
+
 
 ## Features
 - ### User Authentication
